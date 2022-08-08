@@ -6,3 +6,11 @@ taxon_metadata<-read_csv("C:/Users/Raphaelm/SCCWRP/Ephemeral Stream Assessment t
 
 #Taxa lacking metadata
 setdiff(final_ids$FinalID, taxon_metadata$FinalID)
+setdiff(taxon_metadata$FinalID,final_ids$FinalID)
+
+meta_df<-final_ids %>%
+  full_join(taxon_metadata)
+
+
+meta_df %>%
+  filter(Phylum=="Bryophyta" & Family=="Fun")
